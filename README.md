@@ -21,6 +21,8 @@ This project detects hands, tracks landmarks, and visualizes them on a live webc
     - Easily extensible to additional gestures in the future (swipe, zoom, multi-finger actions, etc.).
 - Easily extensible to additional gestures in the future (swipe, zoom, multi-finger actions, etc.).
 
+---
+
 ## Future Works
 
 - Add more gestures: swipe left/right for workspace switching, multi-finger gestures for zoom/pinch actions.
