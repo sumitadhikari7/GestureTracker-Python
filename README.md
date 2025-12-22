@@ -47,3 +47,14 @@ This project detects hands, tracks landmarks, and visualizes them on a live webc
     - Implemented Experimentally
     - Not stable or consistent, depends on system audio backend
 - Due to these limitations, the gesture actions may behave unusually
+ --- 
+## Known Issues
+
+- Reliable global zoom control
+- Stable volume control using pinch gestures
+- Touchpad-level smoothness for cursor movement
+- Gesture actions on Wayland sessions
+
+ **These issues are primarily caused by:**
+ - OS Level input restrictions
+ - Latency from real-time hand tracking
