@@ -58,3 +58,14 @@ This project detects hands, tracks landmarks, and visualizes them on a live webc
  **These issues are primarily caused by:**
  - OS Level input restrictions
  - Latency from real-time hand tracking
+
+ --- 
+ ## Future Improvements
+
+- Improve cursor movement using acceleration + dead zones
+- Better finger-state detection to avoid false triggers
+- Recording gesture data for ML-based refinement
+ 
+ ---
+ ## Disclaimer
+ This project is experimental and educational. It is intended to explore computer vision, gesture recognition, and system interaction - not to replace traditional input devices.
