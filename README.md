@@ -34,3 +34,16 @@ This project detects hands, tracks landmarks, and visualizes them on a live webc
     - Triggered using a three-finger gesture
 ---
 
+## Platform Limitations
+
+- Gesture based system control but only works on X11.
+- Doesn't work on Wayland due to security restrictions on fake input
+- Zoom Gestures:
+    - The console detected the input but the action didn't work:
+        - On Wayland sessions, simulated input is blocked entirely for security reasons.
+        - Even on X11 (Xorg), zoom behavior varies by: Window manager, Application, Focus state
+    - Removed from Final Implementation
+- Volume Control Gestures:
+    - Implemented Experimentally
+    - Not stable or consistent, depends on system audio backend
+- Due to these limitations, the gesture actions may behave unusually
