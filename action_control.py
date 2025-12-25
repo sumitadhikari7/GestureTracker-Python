@@ -24,13 +24,15 @@ def distance(p1, p2):
 def main():
     cap = cv2.VideoCapture(0)
     detector = handDetector()
+
     screenWidth, screenHeight = pyautogui.size()
     frameWidth, frameHeight = 640, 480
 
     emaX, emaY = 0, 0
     alpha = 0.5
-    current_mode = "Idle"
     prev_time = 0
+    current_mode = "Idle"
+    last_click = 0
 
     while True:
         success, img = cap.read()
@@ -40,6 +42,7 @@ def main():
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
 
+        current_mode = "Idle"
         if lmList:
             fingers = fingers_up(lmList)
 
@@ -51,8 +54,11 @@ def main():
                 emaX = alpha * screenX + (1 - alpha) * emaX
                 emaY = alpha * screenY + (1 - alpha) * emaY
                 pyautogui.moveTo(int(emaX), int(emaY), duration=0)
-            else:
-                current_mode = "Idle"
+
+            elif sum(fingers) == 3 and time.time() - last_click > 0.6:
+                pyautogui.click()
+                last_click = time.time()
+                current_mode = "Left Click"
 
         curr_time = time.time()
         fps = 1 / (curr_time - prev_time) if prev_time else 0
@@ -69,3 +75,5 @@ def main():
 
     cap.release()
     cv2.destroyAllWindows()
+if __name__ == "__main__":
+    main()
