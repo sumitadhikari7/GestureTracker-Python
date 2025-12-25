@@ -4,6 +4,7 @@ import pyautogui
 from handtracking import handDetector
 import math
 import os
+from datetime import datetime
 
 pyautogui.FAILSAFE = False
 
@@ -43,6 +44,7 @@ def main():
         lmList = detector.findPosition(img)
 
         current_mode = "Idle"
+        last_shot = 0
         if lmList:
             fingers = fingers_up(lmList)
 
@@ -64,6 +66,14 @@ def main():
                     pyautogui.rightClick()
                     last_click = time.time()
                     current_mode = "Right Click"
+            
+            elif sum(fingers) == 5 and time.time() - last_shot > 1:
+                filename = f"screenshot_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                pyautogui.screenshot(filename)
+                print("Screenshot saved:", filename)
+                last_shot = time.time()
+                current_mode = "Screenshot"
+
 
         curr_time = time.time()
         fps = 1 / (curr_time - prev_time) if prev_time else 0
