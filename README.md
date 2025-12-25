@@ -32,6 +32,9 @@ This project detects hands, tracks landmarks, and visualizes them on a live webc
 - **Click gesture**
 
     - Triggered using a three-finger gesture
+- **Screenshot Capture**
+
+    - Triggered using a opem palm gesture 
 ---
 
 ## Platform Limitations
