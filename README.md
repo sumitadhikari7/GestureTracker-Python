@@ -35,6 +35,8 @@ This project detects hands, tracks landmarks, and visualizes them on a live webc
 - **Screenshot Capture**
 
     - Triggered using a opem palm gesture 
+- **FPS Counter**
+    - Displays FPS on screen
 ---
 
 ## Platform Limitations
