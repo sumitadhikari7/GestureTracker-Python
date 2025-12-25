@@ -59,6 +59,11 @@ def main():
                 pyautogui.click()
                 last_click = time.time()
                 current_mode = "Left Click"
+            elif fingers[1] == 1 and fingers[4] == 1 and sum(fingers) == 2:
+                if time.time() - last_click > 0.6:
+                    pyautogui.rightClick()
+                    last_click = time.time()
+                    current_mode = "Right Click"
 
         curr_time = time.time()
         fps = 1 / (curr_time - prev_time) if prev_time else 0
